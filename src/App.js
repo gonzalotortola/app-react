@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+import logo from './assets/img/logo-h-waymara.svg';
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="benefitBar__container">
+            <div className="benefitBar__container--content">
+                🔥 Envío gratis en compras sobre $4000 en la web 🔥
+            </div>
+        </div>
+        <div className="logo-div">
+          <a href="#">
+            <img src={logo} className="App-logo" alt="logo-waymara" />
+          </a>
+        </div>
+        <NavBar/>
       </header>
     </div>
   );
