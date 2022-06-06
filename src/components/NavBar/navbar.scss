@@ -1,0 +1,167 @@
+.MainNav {
+    border-top: 1px solid #eeeeee;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+.MainNav-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+
+    .link-1 {
+        padding: 10px;
+        display: inline-block;
+        box-sizing: border-box;
+        text-align: left;
+
+        a {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            color: #000000;
+            margin: 0 10px 0 10px;
+            display: inline-block;
+            position: relative;
+            transition: all 0.2s ease;
+
+            &::after {
+                background: none repeat scroll 0 0 transparent;
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 1px;
+                left: 0%;
+                position: absolute;
+                background-color: #313131;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+                box-sizing: border-box;
+            }
+
+            &:hover {
+                color: #313131;
+
+                &::after {
+                    width: 100%; 
+                    left: 0; 
+                }
+            }
+        }
+    }
+
+    .link-0 {
+        padding: 10px;
+        display: inline-block;
+        box-sizing: border-box;
+        text-align: left;
+        
+        p {
+            margin: 0px;
+            padding: 0px;
+            color: #ff9900;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    }
+
+    .link-2 {
+
+        padding: 10px;
+        display: inline-block;
+        box-sizing: border-box;
+        text-align: left;
+
+        a {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #ff9900;
+            margin: 0 10px 0 10px;
+            display: inline-block;
+            position: relative;
+            transition: all 0.2s ease;
+
+            &::after {
+                background: none repeat scroll 0 0 transparent;
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 1px;
+                left: 0%;
+                position: absolute;
+                background: #ffa835;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+                box-sizing: border-box;
+            }
+
+            &:hover {
+                color: #ffa835;
+                
+                &::after {
+                    width: 100%; 
+                    left: 0; 
+                }
+            }
+        }
+    }
+
+    .link-3 {
+        padding: 10px;
+        display: inline-block;
+        box-sizing: border-box;
+        text-align: left;
+
+        a {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            color: #ff9900;
+            margin: 0 10px 0 10px;
+            display: inline-block;
+            position: relative;
+            transition: all 0.2s ease;
+
+            &::after {
+                background: none repeat scroll 0 0 transparent;
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 1px;
+                left: 0%;
+                position: absolute;
+                background: #ffa835;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+                box-sizing: border-box;
+            }
+
+            &:hover {
+                color: #ffa835;
+                                
+                &::after {
+                    width: 100%; 
+                    left: 0; 
+                }
+            }
+
+            
+        }
+    }
+}

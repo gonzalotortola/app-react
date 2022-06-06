@@ -1,4 +1,5 @@
-import "./navbar.css"
+import CartWidget from "../CartWidget/CartWidget";
+import "./navbar.scss"
 
 export default function NavBar() {
 
@@ -30,7 +31,14 @@ export default function NavBar() {
                     <li className="link-3">
                         <a href="#">Contacto</a>
                     </li>
+                    <li className="link-0">
+                        <p>|</p>
+                    </li>
+                    <li className="cartWidget">
+                        <CartWidget />
+                    </li>
                 </ul>
+
             </nav>
         </div>
         
