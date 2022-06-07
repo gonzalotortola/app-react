@@ -1,0 +1,56 @@
+.centerContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2em;
+
+    .itemCountContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 2em;
+        border: 1px solid #cfcfcf;
+        max-width: fit-content;
+        box-shadow: 0px 13px 21px -4px rgba(0,0,0,0.2);
+    
+        .counterContainer {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 1.5em;
+            font-family: 'Poppins', sans-serif;
+            max-width: fit-content;
+    
+            .counterButton {
+                font-size: 1em;
+                color: #fff;
+                background-color: #ff9900;
+                border-color: #ff9900;
+                box-shadow: none;
+                border-radius: 500px;
+                width: 40px;
+            }
+
+            p {
+                min-width: 1em;
+                text-align: center;
+            }
+        }
+
+        .carritoButton {
+            margin-top: 2em;
+            color: #ff9900;
+            border-color: #ff9900;
+            box-shadow: none;
+            font-size: .9em;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 0;
+            text-transform: none;
+            width: 100%;
+        }
+    }
+}
+
+

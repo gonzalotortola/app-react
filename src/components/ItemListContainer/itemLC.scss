@@ -1,11 +1,11 @@
 .saludo {
-    margin-top: 50px;
-    height: 800px;
+    height: auto;
+    padding: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 1em;
     transition: all .2s ease-in-out;
     cursor: pointer;
 
