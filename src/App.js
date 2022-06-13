@@ -2,6 +2,7 @@ import logo from './assets/img/logo-h-waymara.svg';
 import './app.scss';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <NavBar/>
 
         <ItemListContainer greeting={<h1>Bienvenido a la tienda de Waymara</h1>}/>
+        <ItemDetailContainer />
       </header>
     </div>
   );

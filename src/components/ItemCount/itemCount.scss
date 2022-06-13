@@ -3,6 +3,7 @@ $transicion-lenta: all .4s ease;;
 .centerContainer {
     display: flex;
     justify-content: center;
+    width: 100%;
 
     .itemCountContainer {
         display: flex;

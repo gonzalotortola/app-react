@@ -1,12 +1,11 @@
 import React from 'react'
-import ItemCount from '../../ItemCount/ItemCount'
+import ItemCount from '../ItemCount/ItemCount'
 import './item.scss'
 
 import {Card, CardMedia, CardContent} from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-export default function Item( item ) {
-   
+const Item = ({item}) => {
     return (
         <Card className="card" sx={{ maxWidth: 345 }}>
             <div className="img-center">
@@ -32,4 +31,6 @@ export default function Item( item ) {
             </CardContent>
         </Card>
     )
-}
+};
+
+export default Item;

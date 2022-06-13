@@ -1,0 +1,66 @@
+.detail-card {
+    display: flex;
+    margin: 0 15%;
+    gap: 3rem;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+
+    .detail-img-center {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .detail-img {
+            max-width: 450px;
+            min-width: 200px;
+        }
+    }
+
+    .detail-card-body {
+
+        .detail-name {
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 0;
+        }
+
+        .detail-tagline {
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            color: #ff9900;
+        }
+
+        .detail-description {
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            color: #000;
+            margin-top: 1rem;
+        }
+
+        .detail-price {
+            margin: 50px 0;
+            font-size: 1.8rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            color: #000;
+        }
+
+        .detail-buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            max-width: fit-content;
+
+            .itemCount {
+                width: 100%;
+            }
+        }
+    }
+}

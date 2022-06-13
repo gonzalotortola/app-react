@@ -25,7 +25,6 @@ export default function ItemCount ( {stock, initial} ) {
     return (
         <div className="centerContainer">
             <div className="itemCountContainer">
-                <Button className="carritoButton" variant="outlined" startIcon={<AddShoppingCartOutlinedIcon />}>Agregar al carrito</Button>
                 <div className="counterContainer">
                     <Button className="counterButton"
                             variant="contained"
@@ -43,6 +42,8 @@ export default function ItemCount ( {stock, initial} ) {
                         +
                     </Button>
                 </div>
+                <Button className="carritoButton" variant="outlined" startIcon={<AddShoppingCartOutlinedIcon />}>Agregar al carrito</Button>
+
             </div>
         </div>
     )

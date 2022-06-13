@@ -1,38 +1,32 @@
-import "./itemLC.scss";
 import ItemList from "./ItemList/ItemList";
+import { productosArray }  from "../../data/products";
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function ItemListContainer(props) {
+const ItemListContainer = ( {greeting} ) => {
 
-  const items = [
-    {
-        id: 1,
-        name: 'Remerón Celestina',
-        description: 'Línea amplia. Con detalles tajo a los costados con vuelo. Piquet de algodón azul francia.',
-        price: 4299,
-        pictureURL: 'https://gonzalotortola.github.io/waymara-coder/assets/img/urban/Urban-2.png',
-        stock: 7,
-    },
-    {
-        id: 2,
-        name: 'Conjunto Mora',
-        description: 'Conjunto deportivo Biker + Top en tela laguna estampada, ecoprint berlain importado.',
-        price: 6899,
-        pictureURL: 'https://gonzalotortola.github.io/waymara-coder/assets/img/energy/Energy-9.png',
-        stock: 2,
-    },
-    {
-        id: 3,
-        name: 'Remerón Celestina',
-        description: 'Mangas 3/4. Hombro caído. Escote en V. Jersey flame. Cómoda y versátil.',
-        price: 1199,
-        pictureURL: 'https://gonzalotortola.github.io/waymara-coder/assets/img/urban/Urban-4.png',
-        stock: 5,
-    },
-];
+  const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+      const traerProductos = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(productosArray);
+        }, 2000);
+      });
+      traerProductos.then((resolve) => {
+        setProductos(resolve);
+      });
+      traerProductos.catch((error) => {
+        console.log(error);
+      });
+    }, []);
 
   return (
     <div>
-      <ItemList items={items} />
+      <div> {greeting} </div>
+      <ItemList items={productos} />
     </div>
   )
-} 
+};
+
+export default ItemListContainer;
