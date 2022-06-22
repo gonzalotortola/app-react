@@ -2,18 +2,20 @@ import ItemDetail from "./ItemDetail/ItemDetail";
 import { productosArray }  from "../../data/products";
 import { useState } from 'react';
 import { useEffect } from 'react';
-
-let detalleProducto = [productosArray[0]];
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
+
+  const { id } = useParams();
 
   const [producto, setProducto] = useState([]);
 
     useEffect(() => {
       const traerProducto = new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(detalleProducto);
-        }, 3000);
+          const itemFound = productosArray.find(item => { return item.id === parseInt(id) });
+          resolve(itemFound);
+        }, 2000);
       });
       traerProducto.then((resolve) => {
         setProducto(resolve);
@@ -21,14 +23,12 @@ const ItemDetailContainer = () => {
       traerProducto.catch((error) => {
         console.log(error);
       });
-    }, []);
+    }, [id]);
 
   return (
     <div>
         <div className="container">
-          { producto.map((producto) => (
-            <ItemDetail key={producto.id} item={producto}/>
-          ))}
+          <ItemDetail key={producto.id} item={producto}/>
         </div>
     </div>
   )

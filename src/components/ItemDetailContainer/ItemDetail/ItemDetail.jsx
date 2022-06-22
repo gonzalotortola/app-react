@@ -5,7 +5,7 @@ import './itemDetail.scss';
 import {CardMedia, ToggleButtonGroup, ToggleButton} from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({ item }) => {
 
     const [alignment, setAlignment] = React.useState('web');
 
@@ -22,7 +22,7 @@ const ItemDetail = ({item}) => {
                     height="auto"
                     image={item.pictureURL}
                     alt={item.name}
-                    />
+                />
                 </div>
                 
                 <div className="detail-card-body">
@@ -30,13 +30,13 @@ const ItemDetail = ({item}) => {
                         {item.name}
                     </Typography>
                     <Typography className="detail-tagline" gutterBottom variant="h5" component="div">
-                        Luce espléndida en cualquier momento del día.
+                        {item.tagline}
                     </Typography>
                     <Typography className="detail-description" variant="body2" color="text.secondary">
                         {item.description} 
                     </Typography>
                     <Typography className="detail-price" gutterBottom variant="h5" component="div">
-                        $ {item.price.toLocaleString('es-AR')}
+                        $ {item.price}
                     </Typography>
                     <div className="detail-buttons">
                         <ToggleButtonGroup

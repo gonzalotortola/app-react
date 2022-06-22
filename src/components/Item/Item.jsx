@@ -2,33 +2,40 @@ import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './item.scss'
 
-import {Card, CardMedia, CardContent} from '@mui/material';
+import {Card, CardMedia, CardContent, CardActions} from '@mui/material';
 import Typography from '@mui/material/Typography';
+
+import { Link } from 'react-router-dom';
 
 const Item = ({item}) => {
     return (
-        <Card className="card" sx={{ maxWidth: 345 }}>
-            <div className="img-center">
+        <Card className="card" sx={{ maxWidth: 345, borderRadius: 0, boxShadow: "none"}}>
+            
+            <Link to={`../item/${item.id}`} className="img-center">
                 <CardMedia className="img"
                 component="img"
                 height="auto"
                 image={item.pictureURL}
                 alt={item.name}
                 />
-            </div>
+            </Link>
             
             <CardContent className="card-body">
-                <Typography className="name" gutterBottom variant="h5" component="div">
-                    {item.name}
+                <Link to={`../item/${item.id}`} style={{ textDecoration: 'none' }} >
+                    <Typography className="name" gutterBottom variant="h5" component="div">
+                        {item.name}
+                    </Typography>
+                </Link>
+                <Typography className="price" gutterBottom variant="h5" component="div" sx={{bottom: 0}}>
+                    $ {item.price.toLocaleString('es-AR')}
                 </Typography>
-                <Typography className="description" variant="body2" color="text.secondary">
-                    {item.description} 
-                </Typography>
-                <Typography className="price" gutterBottom variant="h5" component="div">
-                    ${item.price.toLocaleString('es-AR')}
-                </Typography>
-                <ItemCount className="itemCount" stock={item.stock} initial={1}/>
             </CardContent>
+            <CardActions className="cardActions">
+                <ItemCount stock={item.stock} initial={1}/>
+                <Typography className="stock" gutterBottom variant="h5" component="div">
+                        Stock disponible: {item.stock}
+                </Typography>
+            </CardActions>
         </Card>
     )
 };
