@@ -61,6 +61,28 @@
             .itemCount {
                 width: 100%;
             }
+
+            .verCarritoLink {
+                text-decoration: none;
+                width: 100%;
+
+                .verCarritoButton {
+                    margin-top: 1em;
+                    color: #fff;
+                    background-color: #ff9900;
+                    border: none;
+                    box-shadow: none;
+                    font-size: .9em;
+                    font-family: 'Poppins', sans-serif;
+                    border-radius: 0;
+                    text-transform: none;
+                    width: 100%;
+        
+                    &:hover {
+                        background-color: #ca7900;
+                    }
+                }
+            }            
         }
     }
 }

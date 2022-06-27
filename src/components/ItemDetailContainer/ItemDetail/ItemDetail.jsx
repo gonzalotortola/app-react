@@ -1,11 +1,28 @@
 import React from 'react';
 import ItemCount from '../../ItemCount/ItemCount';
 import './itemDetail.scss';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import {CardMedia, ToggleButtonGroup, ToggleButton} from '@mui/material';
+
+
+import {CardMedia, ToggleButtonGroup, ToggleButton, Button} from '@mui/material';
 import Typography from '@mui/material/Typography';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+
+
 
 const ItemDetail = ({ item }) => {
+
+    const [cant, setCant] = useState(0)
+
+    const [addedToCart, setAddedToCart] = useState(false)
+
+    const onAdd = (quantityToAdd) => {
+        console.log("Cantidad recibida: " + quantityToAdd)
+        setCant(quantityToAdd)
+        setAddedToCart(true)
+    }
 
     const [alignment, setAlignment] = React.useState('web');
 
@@ -52,7 +69,14 @@ const ItemDetail = ({ item }) => {
                             <ToggleButton sx={{ borderRadius: 0 }} disabled value="XL">XL</ToggleButton>
                             <ToggleButton sx={{ borderRadius: 0 }} disabled value="XXL">XXL</ToggleButton>
                         </ToggleButtonGroup>
-                        <ItemCount className="itemCount" stock={item.stock} initial={1}/>
+
+                        {
+                            addedToCart === false ?
+                            <ItemCount className="itemCount" onAdd={onAdd} stock={item.stock} initial={1}/>
+                            :   <Link to="/cart" className="verCarritoLink">
+                                    <Button className="verCarritoButton" variant="outlined" startIcon={<ShoppingCartOutlinedIcon />}>Ver carrito</Button>
+                                </Link>
+                        }
                     </div>                   
                 </div>
             </div>

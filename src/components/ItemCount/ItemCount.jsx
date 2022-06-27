@@ -4,7 +4,7 @@ import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutl
 import "./itemCount.scss";
 import { useState } from 'react';
 
-export default function ItemCount ( {stock, initial} ) {
+export default function ItemCount ( {stock, initial, onAdd} ) {
 
     const [count, setCount] = useState(initial);
 
@@ -21,7 +21,7 @@ export default function ItemCount ( {stock, initial} ) {
             return count        
         }
     }
-    
+  
     return (
         <div className="centerContainer">
             <div className="itemCountContainer">
@@ -42,7 +42,7 @@ export default function ItemCount ( {stock, initial} ) {
                         +
                     </Button>
                 </div>
-                <Button className="carritoButton" variant="outlined" startIcon={<AddShoppingCartOutlinedIcon />}>Agregar al carrito</Button>
+                <Button onClick={()=>onAdd(count)} className="carritoButton" variant="outlined" startIcon={<AddShoppingCartOutlinedIcon />}>Agregar al carrito</Button>
 
             </div>
         </div>

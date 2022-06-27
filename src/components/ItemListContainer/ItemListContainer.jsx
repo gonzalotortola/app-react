@@ -11,7 +11,7 @@ const ItemListContainer = ( {greeting} ) => {
     const { categoryId } = useParams();
 
     useEffect(() => {
-      const traerProductos = new Promise((resolve, reject) => {
+      const traerProductos = new Promise((resolve) => {
         setTimeout(() => {
           if (categoryId === undefined)
           resolve(productosArray);
