@@ -1,13 +1,13 @@
-import React from 'react'
-import ItemCount from '../ItemCount/ItemCount'
-import './item.scss'
+import React from 'react';
+import './item.scss';
 
-import {Card, CardMedia, CardContent, CardActions} from '@mui/material';
+import {Card, CardMedia, CardContent, CardActions, Divider} from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import { Link } from 'react-router-dom';
 
 const Item = ({item}) => {
+
     return (
         <Card className="card" sx={{ maxWidth: 345, borderRadius: 0, boxShadow: "none"}}>
             
@@ -30,8 +30,8 @@ const Item = ({item}) => {
                     $ {item.price.toLocaleString('es-AR')}
                 </Typography>
             </CardContent>
+            <Divider />
             <CardActions className="cardActions">
-                <ItemCount stock={item.stock} initial={1}/>
                 <Typography className="stock" gutterBottom variant="h5" component="div">
                         Stock disponible: {item.stock}
                 </Typography>

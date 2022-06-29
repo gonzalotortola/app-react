@@ -29,21 +29,23 @@ export default function ItemCount ( {stock, initial, onAdd} ) {
                     <Button className="counterButton"
                             variant="contained"
                             onClick={resta}
-                            disabled={count === initial ? true : null}
-                    >
+                            disabled={count === initial ? true : null}>
                         -
                     </Button>
                     <p>{count}</p>
                     <Button className="counterButton"
                             variant="contained"
                             onClick={suma}
-                            disabled={count === stock ? true : null}
-                    >
+                            disabled={count === stock ? true : null}>
                         +
                     </Button>
                 </div>
-                <Button onClick={()=>onAdd(count)} className="carritoButton" variant="outlined" startIcon={<AddShoppingCartOutlinedIcon />}>Agregar al carrito</Button>
-
+                <Button onClick={()=>onAdd(count)}
+                        className="carritoButton"
+                        variant="outlined"
+                        startIcon={<AddShoppingCartOutlinedIcon />}>
+                    Agregar al carrito
+                </Button>
             </div>
         </div>
     )
