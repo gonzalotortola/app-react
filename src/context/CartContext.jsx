@@ -1,6 +1,5 @@
 import { createContext } from 'react';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 export const CartContext = createContext();
 
@@ -8,58 +7,54 @@ export const CartProvider = ({children}) => {
     
     const [cart, setCart] = useState([]);
 
-    const [totalPrice, setTotalPrice] = useState(0);
-
-    const [totalQuantity, setTotalQuantity] = useState(0);
-
-    useEffect(() => {
-        console.log(cart)
-        console.log('Carrito: ' + cart.length)
-    }, [cart]);
-    
-    useEffect(() => {
-        console.log('El precio total es: $' + totalPrice)
-    }, [totalPrice]);
-
     // función para agregar al carrito
     const addToCart = (item, quantity) => {
-        if (isInCart(item)) {
-            console.log('Ya está en el carrito.');
+        if (isInCart(item.id)) {
+            const idToAdd = item.id;
+            let itemToAdd = cart.find ( producto => producto.id === idToAdd);
+            itemToAdd.quantity += quantity;
+            
+            let newCart = cart.filter(cadaItem => cadaItem.id !== item.id);
+            setCart([...newCart, {...itemToAdd}]);
+
         } else {
             setCart([...cart, {...item, quantity}]);
-            setTotalQuantity(totalQuantity + quantity)
         };
     };
 
     // función para verificar si el producto ya está en el carrito
-    const isInCart = (item) => {
-        return cart.some((producto) => producto.id === item.id);
+    function isInCart(id) {
+        return cart.some((producto) => producto.id === id);
     };
 
     // función para calcular el $ total del carrito
-    const priceTotal = (item, quantity) => {
-        if (isInCart(item)) {
-            return null
-        } else {
-        setTotalPrice((item.price * quantity) + totalPrice);
-    }};
+    function priceTotal() {
+        let total = 0;
+        cart.forEach((item) => (total = total + item.quantity * item.price));
+        return total;
+    }
    
     // función para eliminar un item del carrito
-    const deleteItem = (item) => {
-        setCart(cart.filter(cartItem => cartItem.id !== item.id));
-        setTotalPrice(cart.filter(cartItem => cartItem.id !== item.id).reduce((acc, curr) => acc + curr.price * curr.quantity, 0));
-        setTotalQuantity(cart.filter(cartItem => cartItem.id !== item.id).reduce((acc, curr) => acc + curr.quantity * curr.quantity, 0));
+    const deleteItem = (id) => {
+        let newCart = cart.filter(cartItem => cartItem.id !== id);
+        setCart(newCart);
     };
+
+    // función para ver la cantidad total del carrito
+
+    function quantityInCart() {
+        let total = 0;
+        cart.forEach( item => total = total + item.quantity);
+        return total;
+    }
 
     // función para eliminar todos los items del carrito
     const clearCart = () => {
         setCart([]);
-        setTotalPrice(0);
-        setTotalQuantity(0);
     };
 
     return (
-        <CartContext.Provider value={{cart, addToCart, isInCart, priceTotal, deleteItem, clearCart, totalQuantity}}>
+        <CartContext.Provider value={{cart, addToCart, isInCart, priceTotal, deleteItem, clearCart, quantityInCart}}>
             {children}
         </CartContext.Provider>
     )

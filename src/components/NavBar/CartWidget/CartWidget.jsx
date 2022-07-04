@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 export default function CartWidget() {
   
-  const {totalQuantity} = useContext(CartContext);
+  const {quantityInCart} = useContext(CartContext);
 
   return (
         <Button component={Link} to="/cart"
@@ -28,7 +28,7 @@ export default function CartWidget() {
                   }
                 }}
                 startIcon={<ShoppingCartOutlinedIcon />}>
-          {totalQuantity}
+          {quantityInCart() === 0 ? null : quantityInCart()}
         </Button>
   )
 }

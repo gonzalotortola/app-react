@@ -14,7 +14,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const ItemDetail = ({ item }) => {
 
-    const {addToCart, deleteItem, priceTotal} = useContext(CartContext);
+    const {addToCart, priceTotal} = useContext(CartContext);
 
     const [cant, setCant] = useState(0);
 
@@ -26,11 +26,6 @@ const ItemDetail = ({ item }) => {
         setAddedToCart(true);
         addToCart(item, quantityToAdd);
         priceTotal(item, quantityToAdd);
-    }
-
-    const handleDeleteItem = () => {
-        deleteItem(item);
-        console.log('Se ha borrado ' + item.name + '.');
     }
 
     return (
@@ -72,9 +67,6 @@ const ItemDetail = ({ item }) => {
                                 <Link to="/cart" className="verCarritoLink">
                                     <Button className="verCarritoButton" variant="outlined" startIcon={<ShoppingCartOutlinedIcon />}>Ver carrito</Button>
                                 </Link>
-                                <button onClick={handleDeleteItem}>
-                                    Borrar item //test
-                                </button>
                             </>
                         }
                     </div>                   

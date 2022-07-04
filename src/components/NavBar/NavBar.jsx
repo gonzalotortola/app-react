@@ -2,10 +2,23 @@ import CartWidget from "./CartWidget/CartWidget";
 import "./navbar.scss"
 import { Link } from "react-router-dom";
 
+import logo from '../../assets/img/logo-h-waymara.svg';
+
 export default function NavBar() {
 
     return (
         <div>
+            <div className="benefitBar__container">
+                <div className="benefitBar__container--content">
+                    🔥 Envío gratis en compras que superen $10.000 🔥
+                </div>
+            </div>
+            <div className="logo-div">
+                <Link to="/">
+                    <img src={logo} className="App-logo" alt="logo-waymara" />
+                </Link>
+            </div>
+
             <nav className="MainNav">
                 <ul className="MainNav-container">
                     <li className="link-1">
