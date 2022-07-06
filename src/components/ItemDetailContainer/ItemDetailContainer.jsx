@@ -1,8 +1,12 @@
 import ItemDetail from "./ItemDetail/ItemDetail";
-import { productosArray }  from "../../data/products";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+import CircularProgress from '@mui/material/CircularProgress';
+
+import { traerUnProducto } from "../../services/firestore";
+
 
 const ItemDetailContainer = () => {
 
@@ -10,27 +14,43 @@ const ItemDetailContainer = () => {
 
   const [producto, setProducto] = useState([]);
 
-    useEffect(() => {
-      const traerProducto = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          const itemFound = productosArray.find(item => { return item.id === parseInt(id) });
-          resolve(itemFound);
-        }, 2000);
-      });
-      traerProducto.then((resolve) => {
-        setProducto(resolve);
-      });
-      traerProducto.catch((error) => {
-        console.log(error);
-      });
-    }, [id]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    if (id) {
+      traerUnProducto(id)
+        .then((res) => {
+          setProducto(res);
+      })
+        .catch((error) => {
+          console.log(error);
+          setIsError(error);
+      })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }, []);
+
+  if(isError){
+    return <p>{isError}</p>
+  }
 
   return (
-    <div>
+    <>
+    {isLoading === true
+    ? <div style={{width: '100%', display: "flex", justifyContent: 'center'}}>
+      <CircularProgress />
+      </div>
+    : <div>
         <div className="container">
           <ItemDetail key={producto.id} item={producto}/>
         </div>
-    </div>
+      </div>
+      }
+    </>
   )
 };
 

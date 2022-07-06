@@ -82,7 +82,7 @@ const Cart = () => {
                         </TableCell>
                       <TableCell component="th" scope="row" align="left"
                       sx={{fontFamily: 'Poppins, sans serif', fontSize: '1rem', fontWeight: 400}}>
-                        $ {(item.price).toFixed(2)}
+                        $ {parseFloat(item.price).toLocaleString('es-AR')}
                         </TableCell>
                       <TableCell component="th" scope="row" align="center"
                       sx={{fontFamily: 'Poppins, sans serif', fontSize: '1rem', fontWeight: 400}}>
@@ -90,7 +90,7 @@ const Cart = () => {
                         </TableCell>
                       <TableCell component="th" scope="row" align="left"
                       sx={{fontFamily: 'Poppins, sans serif', fontSize: '1rem', fontWeight: 500}}>
-                        <span>${(item.price * item.quantity).toFixed(2)}</span>
+                        <span>${(parseFloat(item.price) * item.quantity).toLocaleString('es-AR')}</span>
                         </TableCell>
                       <TableCell component="th" scope="row" align="left" size='small'>
                         <IconButton aria-label="delete" size="large" onClick={ () => deleteItem(item.id)}>
@@ -104,7 +104,7 @@ const Cart = () => {
                     <TableCell colSpan={2} align="left"></TableCell>
                     <TableCell align="center" sx={{fontFamily: 'Poppins, sans serif', fontSize: '1.5rem', fontWeight: 400, paddingTop: '1.5rem', paddingBottom: '1.5rem'}}>Total a pagar:</TableCell>
                     <TableCell align="left" sx={{fontFamily: 'Poppins, sans serif', fontSize: '1.5rem', fontWeight: 400, paddingTop: '1.5rem', paddingBottom: '1.5rem'}}>
-                      <span>${priceTotal().toFixed(2)}</span>
+                      <span>${priceTotal().toLocaleString('es-AR')}</span>
                     </TableCell>                  
                   </TableRow>
 

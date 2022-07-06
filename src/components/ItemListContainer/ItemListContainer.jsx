@@ -1,33 +1,35 @@
 import ItemList from "./ItemList/ItemList";
-import { productosArray }  from "../../data/products";
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { traerProductos, traerProductosDeCategoria } from "../../services/firestore";
 
 const ItemListContainer = ( {greeting} ) => {
 
   const [productos, setProductos] = useState([]);
 
-    const { categoryId } = useParams();
+  const { categoryId } = useParams();
 
-    useEffect(() => {
-      const traerProductos = new Promise((resolve) => {
-        setTimeout(() => {
-          if (categoryId === undefined)
-          resolve(productosArray);
-          else {
-            const itemsFound = productosArray.filter(item => { return item.category === categoryId});
-            resolve(itemsFound);
-          }
-        }, 2000);
-      });
-      traerProductos.then((resolve) => {
-        setProductos(resolve);
-      });
-      traerProductos.catch((error) => {
+  useEffect(() => {
+    if (categoryId) {
+    traerProductosDeCategoria(categoryId)
+      .then((res) => {
+        setProductos(res);
+    })
+      .catch((error) => {
+      console.log(error);
+    });
+  } else {
+    traerProductos()
+      .then((res) => {
+        setProductos(res);
+      })
+      .catch((error) => {
         console.log(error);
       });
-    }, [categoryId]);
+    }
+  }, [categoryId]);
 
   return (
     <div>

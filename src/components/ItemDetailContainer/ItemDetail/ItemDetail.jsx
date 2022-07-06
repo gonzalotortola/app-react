@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../../context/CartContext';
 
+import CircularProgress from '@mui/material/CircularProgress';
 
 import {CardMedia, Button} from '@mui/material';
 import Typography from '@mui/material/Typography';
@@ -30,6 +31,7 @@ const ItemDetail = ({ item }) => {
 
     return (
         <>
+        <CircularProgress />
             <div className="detail-card">
                 <div className="detail-img-center">
                     <CardMedia className="detail-img"
@@ -51,7 +53,7 @@ const ItemDetail = ({ item }) => {
                         {item.description}
                     </Typography>
                     <Typography className="detail-price" gutterBottom variant="h5" component="div">
-                        $ {item.price}
+                        $ {parseFloat(item.price).toLocaleString('es-AR')}
                     </Typography>
                     <div className="detail-buttons">
                         {
