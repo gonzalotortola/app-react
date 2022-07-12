@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import logo from '../../assets/img/logo-h-waymara.svg';
 
+
+
 export default function NavBar() {
 
     return (

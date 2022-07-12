@@ -12,43 +12,35 @@ const ItemDetailContainer = () => {
 
   const { id } = useParams();
 
-  const [producto, setProducto] = useState([]);
+  const [producto, setProducto] = useState({});
 
-  const [isLoading, setIsLoading] = useState(true);
-  
-  const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (id) {
       traerUnProducto(id)
         .then((res) => {
           setProducto(res);
+          setLoading(false);
       })
         .catch((error) => {
           console.log(error);
-          setIsError(error);
       })
-        .finally(() => {
-          setIsLoading(false);
-        });
     }
-  }, []);
+  }, [id]);
 
-  if(isError){
-    return <p>{isError}</p>
-  }
 
   return (
     <>
-    {isLoading === true
-    ? <div style={{width: '100%', display: "flex", justifyContent: 'center'}}>
-      <CircularProgress />
-      </div>
-    : <div>
-        <div className="container">
+      { loading
+      ? <div style={{width: '100%', height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <div >
+              <CircularProgress sx={{color: '#ff9900'}} />
+            </div>
+        </div>
+      : <div className="container">
           <ItemDetail key={producto.id} item={producto}/>
         </div>
-      </div>
       }
     </>
   )

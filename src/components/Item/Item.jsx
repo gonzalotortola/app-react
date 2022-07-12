@@ -27,7 +27,7 @@ const Item = ({item}) => {
                     </Typography>
                 </Link>
                 <Typography className="price" gutterBottom variant="h5" component="div" sx={{bottom: 0}}>
-                    $ {parseFloat(item.price).toLocaleString('es-AR')}
+                    $ {item.price.toLocaleString('es-AR')}
                 </Typography>
             </CardContent>
             <Divider />
