@@ -1,0 +1,249 @@
+@import "../../styles/variables.scss";
+
+
+.footer-color {
+    background-color: $gris-oscuro;
+
+    .footer-badges {
+
+        .flex-badges {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 50px 0 50px 0;
+
+            background-attachment: local;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-image: url('https://gonzalotortola.github.io/waymara-coder/assets/img/footer/footer-badges-bg.png');
+            background-repeat: no-repeat;
+
+            p {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 300;
+                color: $blanco;
+                text-align: center;
+                font-size: 38px;
+                padding: 0 0 20px 0;
+    
+                span {
+                    font-family: 'Poppins', sans-serif;
+                    display: block;
+                    color: $blanco;
+                    text-align: center;
+                    font-size: 18px;
+                    padding: 20px 0 20px 0;
+                }
+            }
+    
+            .badges-container {
+                display: flex;
+                justify-content: space-between;
+                gap: 6rem;
+
+                img {
+                    margin: auto;
+                    width: 130px;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .footer-organizacion {
+        width: 70%;
+        margin: 0 15% 0 15%;
+        padding: 20px 0px 20px 0px;
+        display: flex;
+        justify-content: space-between;
+
+        .contenedor-footer-nav {
+            display: flex;
+            flex-direction: row;
+
+            .elemento {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-right: 50px;
+
+                .titulo {
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 14px;
+                    font-weight: 400;
+                    text-decoration: none;
+                    color: $blanco;
+                    margin: 10px;
+                }
+                
+                .link {
+                    list-style-type: none;
+
+                    a {
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 13px;
+                        font-weight: 300;
+                        text-decoration: none;
+                        color: $blanco;
+                        margin: 10px;
+                        cursor: pointer;
+                        transition: $transicion-rapida;
+
+                        &:hover {
+                            color: $gris-claro;
+                        }
+                    }
+
+                    .sub-link {
+                        border-left: 1px solid $gris;
+                        margin-left: 10px;
+                        list-style-type: none;
+
+                        a {
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 12px;
+                            font-weight: 300;
+                            text-decoration: none;
+                            color: $blanco;
+                            transition: $transicion-rapida;
+
+                            &::before {
+                                content: '>';
+                                margin-right: 5px;
+                            }
+
+                            &:hover {
+                                color: $gris-claro;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+                
+        .contenedor-redes {
+            display: flex;
+            flex-direction: column;
+
+            .titulo-redes-list {
+                list-style-type: none;
+
+                .titulo-redes {
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 16px;
+                    font-weight: 600;
+                    text-decoration: none;
+                    color: $blanco;
+                    list-style-type: none;
+                }
+    
+                .contenedor-iconos-redes {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+    
+                    .iconos-redes {
+                        display: inline-block;
+                        margin-top: 10px;
+                        list-style-type: none;    
+    
+                        a {
+                            width: 35px;
+                            text-decoration: none;
+                            color: $blanco;
+                            margin-right: 10px;
+                            transition: $transicion-rapida;
+    
+                            &:hover {
+                                color: $naranja;
+                            }
+    
+                            &:visited {
+                                color: $blanco;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            }
+
+            
+    }
+
+    .pie {
+        background-color: $negro;
+        padding: 10px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .pie-contenedor {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+            a {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                font-size: 10px;
+                color: $gris;
+                margin-right: 10px;
+                text-align: center;
+                text-decoration: underline solid 1px rgba(128, 128, 128, 0);
+                transition: $transicion-rapida;
+
+                &:hover {
+                    text-decoration: underline solid 1px rgba(128, 128, 128, 1);
+                    color: $gris;
+                }
+            }
+        }
+    }
+    
+    .pie-contenedor {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .pie-contenedor a {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        font-size: 10px;
+        color: $gris;
+        margin-right: 10px;
+        text-align: center;
+        text-decoration: underline solid 1px rgba(128, 128, 128, 0);
+        transition: $transicion-rapida;
+    }
+    
+    .pie-contenedor a:hover {
+        text-decoration: underline solid 1px rgba(128, 128, 128, 1);
+        color: $gris;
+    }
+    
+    .copyright {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        display: block;
+        font-size: 10px;
+        text-align: center;
+        background-color: $blanco;
+        color: $gris;
+        padding: 20px 0px;
+    }
+    
+}
+    
+.footer-rs {
+    display: none;
+}

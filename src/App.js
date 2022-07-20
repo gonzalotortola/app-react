@@ -1,11 +1,15 @@
+import React from 'react';
 import './app.scss';
+
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
-import React, { useState } from 'react';
+import Footer from './components/Footer/Footer';
+
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+
 
 function App() {
 
@@ -20,6 +24,7 @@ function App() {
               <Route path="/item/:id" element={<ItemDetailContainer />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
       </div>
     </CartProvider>
