@@ -68,7 +68,7 @@ const CheckoutView = ({cartOrder, totalPriceOrder, orderID, orderDate}) => {
                                 <Link to={`../item/${item.id}`}>
                                   <img src={item.pictureURL} alt={item.name} style={{minHeight: 100, maxHeight: 100}}/>
                                 </Link>
-                                <Link to={`../item/${item.id}`} style={{textDecoration: 'none', }}>
+                                <Link to={`../item/${item.id}`} style={{textDecoration: 'none'}}>
                                   <Typography sx={{paddingLeft: '1rem', fontFamily: 'Poppins, sans serif', fontSize: '1.1rem', fontWeight: 600, color: "#000",
                                                 '&:visited': { color: "#000"}, '&:hover': { color: "#ff9900"}}}>
                                     {item.name}

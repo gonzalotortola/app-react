@@ -1,0 +1,212 @@
+@import "../../../styles/variables.scss";
+
+.grid-padre-cont {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto auto;
+    grid-template-areas: "a1 b1"
+                        "a1 c1";
+    column-gap: 50px;
+    row-gap: 50px;
+    margin: 0 15% 50px 15%;
+    justify-items: center;
+
+    .formulario-container {
+        grid-area: a1;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+
+        .titulos-cont {
+            @extend .titulos-cont;
+        }
+
+        form {
+
+            .center-form-items {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+
+                .input-corto {
+                    background: none;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 14px;
+                    outline: none;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    border-width: 0 0 1px 0;
+                    border-style: solid;
+                    border-color: rgb(65, 65, 65);
+                    margin-bottom: 16px;
+                    transition: $transicion-rapida;
+                    width: 49%;
+
+                    &:focus {
+                        border-color: $gris;
+                    }
+                }
+
+                .chkbox-container {
+                    display: inline-block;
+                    position: relative;
+                    padding-left: 35px;
+                    margin-bottom: 16px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    width: auto;
+                    font-family: 'Poppins', sans-serif;
+
+                    .checkmark {
+                        position: absolute;
+                        top: 2px;
+                        left: 13px;
+                        height: 16px;
+                        width: 16px;
+                        background-color: none;
+                        border: 1px solid $gris-oscuro-hover;
+                        transition: all .2s ease;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                            left: 3px;
+                            top: 0px;
+                            width: 5px;
+                            height: 9px;
+                            border: solid $gris-oscuro-hover;
+                            border-width: 0 2px 2px 0;
+                            transform: rotate(45deg);
+                        }
+                    }
+
+                    input {
+                        display: inline-block;
+                        margin-left: 16px;
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+
+                        &:checked ~ .checkmark {
+                            background-color: none;
+                        }
+
+                        &:checked ~ .checkmark:after {
+                            display: block;
+                        }
+                    }
+
+                    &:hover input ~ .checkmark {
+                        background-color: $gris-claro;
+                    }
+                }
+
+                .boton-enviar {
+                    @include botones ($naranja, $blanco, 0, auto);
+                
+                    &:hover {
+                        background-color: $naranja-hover-oscuro;
+                    }
+                }
+                
+                .boton-reestablecer {
+                    @include botones (none, $gris-oscuro-hover, auto, 0);
+                
+                    &:hover {
+                        background-color: $blanco;
+                    }
+                }
+            }
+
+            .input-largo {
+                background: none;
+                width: 100%;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                outline: none;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-width: 0 0 1px 0;
+                border-style: solid;
+                border-color: $gris-oscuro-hover;
+                margin-bottom: 16px;
+                transition: $transicion-rapida;
+
+                &:focus {
+                    border-color: $gris;
+                }
+            }
+
+            .input-textarea {
+                background: none;
+                width: 100%;
+                font-family: 'Poppins', sans-serif;
+                font-size: 14px;
+                outline: none;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-width: 0 0 1px 0;
+                border-style: solid;
+                border-color: $gris-oscuro-hover;
+                margin-bottom: 16px;
+                resize: vertical;
+                transition: $transicion-rapida;
+
+                &:focus {
+                    border-color: $gris;
+                }
+            }
+        }
+    }
+
+    #wsp-cont {
+        grid-area: b1;
+    
+        .titulos-cont {
+            @extend .titulos-cont;
+        }
+    
+        .wsp-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: $gris-oscuro-hover;
+            font-size: 20px;
+            text-decoration: none;
+            color: $blanco;
+            overflow: hidden;
+            cursor: pointer;
+            transition: $transicion-rapida;
+        
+            &:hover {
+                background-color: #128c7e;
+                box-shadow: $sombra-1;
+            }
+    
+            .wsp-ico {
+                display: inline-block;
+                margin: 0 15px 0 0;
+                color: $blanco;
+            }
+        }
+    }
+    
+    #horarios-cont {
+        grid-area: c1;
+
+        .titulos-cont {
+            @extend .titulos-cont;
+        }
+        
+        p {
+            font-size: 14px;
+    
+            span{
+                font-style: italic;
+            }
+        }
+    }
+}

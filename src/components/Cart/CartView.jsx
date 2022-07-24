@@ -9,6 +9,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Alert from '@mui/material/Alert';
+import Collapse from '@mui/material/Collapse';
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import { Link } from 'react-router-dom';
 
@@ -21,6 +25,30 @@ import CheckoutView from './CheckoutView';
 import EmptyCartMsg from './EmptyCartMsg';
 
 
+const theme = createTheme({
+  components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root:{
+          fontFamily: 'Poppins, sans-serif',
+          '&.Mui-focused': {
+            color: '#ff9900',
+          },
+        },    
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Poppins, sans-serif',
+          '&:after': {
+            borderBottom: '2px solid #ff9900',
+          },
+        },    
+      },
+    },
+  },
+});
 
 
 const CartView = () => {
@@ -40,6 +68,9 @@ const CartView = () => {
   const [openClear, setOpenClear] = useState(false);
 
   const [openBuy, setOpenBuy] = useState(false);
+
+  const [openAlert, setOpenAlert] = useState(false);
+
 
   const [buyer, setBuyer] = useState( {
       name: "",
@@ -80,17 +111,25 @@ const CartView = () => {
       total: priceTotal()
     };
 
-    setOpenBuy(false);
+    if (buyer.name === "") {
+      setOpenAlert(true);
+    } else if (buyer.email === "") {
+      setOpenAlert(true);
+    } else if (buyer.phone === "") {
+      setOpenAlert(true);
+    } else {
+      setOpenBuy(false);
 
-    createBuyOrder(dataOrder).then(( orderDataCreated ) => {
-      setOrderID(orderDataCreated.id);
-      setTotalPriceOrder(dataOrder.total);
-      setCartOrder(cart);
-      setOrderDone(true);
-      setOrderDate(Date.now());
-      clearCart();
-    });
-  };
+      createBuyOrder(dataOrder).then(( orderDataCreated ) => {
+        setOrderID(orderDataCreated.id);
+        setTotalPriceOrder(dataOrder.total);
+        setCartOrder(cart);
+        setOrderDone(true);
+        setOrderDate(Date.now());
+        clearCart();
+      });
+    };
+  }
 
 
   const handleClickOpenClear = () => {
@@ -151,7 +190,9 @@ const CartView = () => {
                       </TableCell>
                     <TableCell component="th" scope="row" align="center"
                     sx={{fontFamily: 'Poppins, sans serif', fontSize: '1rem', fontWeight: 400}}>
-                      {item.quantity}
+
+                    {item.quantity}
+
                       </TableCell>
                     <TableCell component="th" scope="row" align="left"
                     sx={{fontFamily: 'Poppins, sans serif', fontSize: '1rem', fontWeight: 500}}>
@@ -218,7 +259,12 @@ const CartView = () => {
             onClose={handleCloseClear}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
-            sx={{borderRadius: 0, boxShadow:'none'}}
+            PaperProps={{
+              style: {
+                borderRadius: 0,
+                boxShadow: 'none',
+              },
+            }}
           >
             <DialogTitle id="alert-dialog-title" sx={{fontFamily: 'Poppins, sans-serif', fontWeight: 400}}>
               {"Eliminar todo"}
@@ -246,7 +292,12 @@ const CartView = () => {
             onClose={handleCloseBuy}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
-            sx={{boxShadow:'none'}}
+            PaperProps={{
+              style: {
+                borderRadius: 0,
+                boxShadow: 'none',
+              },
+            }}
           >
             <DialogTitle id="alert-dialog-title" sx={{fontFamily: 'Poppins, sans-serif', fontWeight: 400}}>
               {"Confirmación de compra"}
@@ -255,45 +306,51 @@ const CartView = () => {
               <DialogContentText id="alert-dialog-description" sx={{fontFamily: 'Poppins, sans-serif', fontWeight: 400}}>
                 Ingrese sus datos personales:
               </DialogContentText>
-                <form>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    name="name"
-                    label="Nombre completo"
-                    type="string"
-                    fullWidth
-                    variant="standard"
-                    onChange={handleChange}
-                    required={true}
-                  />
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="email"
-                    name="email"
-                    label="Correo electrónico"
-                    type="string"
-                    fullWidth
-                    variant="standard"
-                    onChange={handleChange}
-                    required={true}
-                  />
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="phone"
-                    name="phone"
-                    label="Número de teléfono"
-                    type="string"
-                    fullWidth
-                    variant="standard"
-                    onChange={handleChange}
-                    required={true}
-                  />                
-                </form>
-                
+              <ThemeProvider theme={theme}>
+                  <form>
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="name"
+                      name="name"
+                      label="Nombre completo"
+                      type="text"
+                      fullWidth
+                      variant="standard"
+                      onChange={handleChange}
+                      required={true}
+                    />                    
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="email"
+                      name="email"
+                      label="Correo electrónico"
+                      type="text"
+                      fullWidth
+                      variant="standard"
+                      onChange={handleChange}
+                      required={true}
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="phone"
+                      name="phone"
+                      label="Número de teléfono"
+                      type="text"
+                      fullWidth
+                      variant="standard"
+                      onChange={handleChange}
+                      required={true}
+                    />
+                  </form>
+                  </ThemeProvider>
+                  <Collapse in={openAlert}>
+                    <Alert severity="error" sx={{fontFamily: 'Poppins'}} onClose={() => {setOpenAlert(false)}}>
+                      Por favor, complete todos los campos.
+                    </Alert>
+                    </Collapse>
               </DialogContent>
             <DialogActions>
               <Button onClick={handleCloseBuy} sx={{textTransform: "none", fontFamily: 'Poppins, sans-serif', fontWeight: 400, borderRadius: 0, color: '#444444'}}>Cancelar</Button>
@@ -314,6 +371,6 @@ const CartView = () => {
           <CheckoutView cartOrder={cartOrder} totalPriceOrder={totalPriceOrder} orderID={orderID} orderDate={orderDate}/>
       }
     </>
-  )
-}    
+  )}
+
 export default CartView;

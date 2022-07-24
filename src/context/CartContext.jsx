@@ -7,7 +7,6 @@ export const CartProvider = ({children}) => {
     
     const [cart, setCart] = useState([]);
 
-    // función para agregar al carrito
     const addToCart = (item, quantity) => {
         if (isInCart(item.id)) {
             const idToAdd = item.id;
@@ -22,25 +21,20 @@ export const CartProvider = ({children}) => {
         };
     };
 
-    // función para verificar si el producto ya está en el carrito
     function isInCart(id) {
         return cart.some((producto) => producto.id === id);
     };
 
-    // función para calcular el $ total del carrito
     function priceTotal() {
         let total = 0;
         cart.forEach((item) => (total = total + item.quantity * item.price));
         return total;
     }
    
-    // función para eliminar un item del carrito
     const deleteItem = (id) => {
         let newCart = cart.filter(cartItem => cartItem.id !== id);
         setCart(newCart);
     };
-
-    // función para ver la cantidad total del carrito
 
     function quantityInCart() {
         let total = 0;
@@ -48,7 +42,6 @@ export const CartProvider = ({children}) => {
         return total;
     }
 
-    // función para eliminar todos los items del carrito
     const clearCart = () => {
         setCart([]);
     };

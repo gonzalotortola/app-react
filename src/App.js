@@ -7,6 +7,10 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart';
 import Footer from './components/Footer/Footer';
 
+import Catalogo from './components/pages/Catalogo/Catalogo';
+import Contacto from './components/pages/Contacto/Contacto';
+import QuienesSomos from './components/pages/Quienes somos/QuienesSomos';
+
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 
@@ -23,6 +27,9 @@ function App() {
               <Route path="/category/:categoryId" element={<ItemListContainer greeting={<h1>Productos por categoría</h1>} />} />
               <Route path="/item/:id" element={<ItemDetailContainer />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/catalogo" element={<Catalogo />} />
+              <Route path="/quienessomos" element={<QuienesSomos />} />
+              <Route path="/contacto" element={<Contacto />} />
             </Routes>
             <Footer />
           </BrowserRouter>

@@ -1,0 +1,80 @@
+@import "../../../styles/variables.scss";
+
+
+
+.padre-qs {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "a1 a2"
+                        "b1 b2"
+                        "c1 c2";
+    column-gap: 20px;
+    row-gap: 50px;
+    margin: 0 15% 50px 15%;
+    justify-content: center;
+
+    div {
+
+        &:nth-child(1) {
+            grid-area: a1;
+        }
+        
+        &:nth-child(2){
+            grid-area: a2;
+        }
+        
+        &:nth-child(3){
+            grid-area: b1;
+        }
+        
+        &:nth-child(4){
+            grid-area: b2;
+        }
+        
+        &:nth-child(5){
+            grid-area: c1;
+        }
+        
+        &:nth-child(6){
+            grid-area: c2;
+        }
+
+    }
+
+    .parrafo-qs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        p {
+            margin: 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        a {
+            text-align: center;
+            font-size: 12px;
+            text-decoration: underline;
+            color: $naranja;
+        }
+    }
+
+    .imagen-qs {
+            
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            vertical-align: center;
+        }
+    }
+}

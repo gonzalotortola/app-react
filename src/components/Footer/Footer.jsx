@@ -1,10 +1,12 @@
 import React from 'react';
-import './footer.scss';
+import { Link } from 'react-router-dom'
 
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
+import './footer.scss';
 
 export default function Footer() {
   return (
@@ -33,14 +35,14 @@ export default function Footer() {
                         </h5>
                         <ul>
                             <li className="link">
-                                <a>Indumentaria</a>
+                                <p>Indumentaria</p>
                                 <ul>
-                                    <li className="sub-link"><a href="pages/urban.html">Urban</a></li>
-                                    <li className="sub-link"><a href="pages/energy-life.html">Energy Life</a></li>
+                                    <li className="sub-link"><Link to={`../category/urban`}><p>Urban</p></Link></li>
+                                    <li className="sub-link"><Link to={`../category/energy`}><p>Energy Life</p></Link></li>
                                 </ul>
                             </li>      
-                            <li className="link"><a href="pages/cosmetica.html">Cosmética</a></li>       
-                            <li className="link"><a href="pages/perfumeria.html">Perfumería</a></li>
+                            <li className="link"><Link to={`../category/cosmetica`}><p>Cosmética</p></Link></li>       
+                            <li className="link"><Link to={`../category/perfumeria`}><p>Perfumería</p></Link></li>
                         </ul>
                     </li>
 
@@ -49,10 +51,10 @@ export default function Footer() {
                             Sobre Waymara
                         </h5>
                         <ul>
-                            <li className="link"><a href="">Nuestra historia</a></li>
-                            <li className="link"><a href="">Compromiso sustentable</a></li>
-                            <li className="link"><a href="">Nuestros valores</a></li>
-                            <li className="link"><a href="">Carrera Empresarial</a></li>
+                            <li className="link"><p >Nuestra historia</p></li>
+                            <li className="link"><p >Compromiso sustentable</p></li>
+                            <li className="link"><p >Nuestros valores</p></li>
+                            <li className="link"><p >Carrera Empresarial</p></li>
                         </ul>
                     </li>
 
@@ -61,11 +63,11 @@ export default function Footer() {
                             Ayuda 
                         </h5>
                         <ul>
-                            <li className="link"><a href="">Guía de talles</a></li>
-                            <li className="link"><a href="">Preguntas frecuentes</a></li>
-                            <li className="link"><a href="">Política de devoluciones</a></li>
-                            <li className="link"><a href="">Código corporativo de ética</a></li>
-                            <li className="link"><a href="">Códigos de producto</a></li>
+                            <li className="link"><p >Guía de talles</p></li>
+                            <li className="link"><p >Preguntas frecuentes</p></li>
+                            <li className="link"><p >Política de devoluciones</p></li>
+                            <li className="link"><p >Código corporativo de ética</p></li>
+                            <li className="link"><p >Códigos de producto</p></li>
                         </ul>
                     </li>
             </ul>
@@ -103,10 +105,10 @@ export default function Footer() {
         
         <div className="pie">
             <nav className="pie-contenedor">
-                <a href="">Términos y condiciones</a>
-                <a href="">Política de privacidad</a>
-                <a href="https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario" target="_blank">Defensa al consumidor</a>
-                <a href="">Botón de arrepentimiento</a>
+                <p>Términos y condiciones</p>
+                <p>Política de privacidad</p>
+                <p component={Link} to="https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario" target="_blank">Defensa al consumidor</p>
+                <p >Botón de arrepentimiento</p>
             </nav>
         </div>
 

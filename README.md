@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Proyecto Final - Gonzalo Tórtola
+####Curso ReactJS - Comisión #37070
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sobre el e-commerce
 
-## Available Scripts
+**Waymara** es una empresa nacida en la provincia de Tucumán que se encuentra en constante expansión y hoy en día ya opera en gran parte del país. Principalmente comercializa indumentaria urbana y deportiva para mujeres y productos de cosmética y belleza.
 
-In the project directory, you can run:
+**¿Por qué elegí está empresa para inspirarme para hacer la app?**
+Trabajo actualmente para la empresa en el área de Diseño Gráfico y Manejo de Redes. Decidí realizar esta aplicación inspirado en la estética de la empresa aprovechando el material para rellenar el contenido, basándome en sitios e-commerce del mismo rubro.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## :nut_and_bolt: Tecnologías
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Esta aplicación fue construida usando las siguientes tecnologias:
 
-### `npm test`
+* [HTML5](https://developer.mozilla.org/es/docs/Web/HTML/)
+* [JavaScript](https://developer.mozilla.org/es/docs/Web/CSS/)
+* [React](https://reactjs.org/) \
+Libreria para `JavaScript` que nos ayuda a construir interfaces reactivas.
+* [Firebase](https://firebase.google.com/) \
+Plataforma de desarrollo de Google, que nos sirve de backend para usar los servicios de base de datos llamado `firestore`.
+* [Material UI](https://mui.com/) \
+Libreria de componentes `React` de código abierto que implementa Material Design de Google.
+* [Sass](https://sass-lang.com/) \
+Es un pre-procesador para `css`. Es con el que esta escrito la gran mayoría de estilos de esta aplicación.\
+* [Material Icons](https://mui.com/material-ui/icons/) \
+Grupo de +2000 íconos creados por Google en su sistema `Material`, divididos en cinco secciones: "relleno", "borde", "redondeado", "duotono", "sharp".
+* [NPM](https://www.npmjs.com/) \
+Sistema de gestión de paquetes por defecto para Node.js.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## :electric_plug: Funciones dentro de `CartContext`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **addToCart:** Añadir un item/producto al carrito.
+* **isInCart:** Verificar si un producto ya se encuentra en el carrito.
+* **priceTotal:** Suma la totalidad de los precios de los productos añadidos al carrito.
+* **deleteItem:** Eliminar un producto del carrito.
+* **quantityInCart:** Ver la cantidad total de productos en el carrito.
+* **clearCart:** Vaciar el carrito.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :fire: `Firebase`
 
-### `npm run eject`
+### Colección: Productos
+Cada `producto` tiene las siguientes características:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Campo             | Tipo            |        Valor         |
+| ----------------- | ----------------|----------------------|
+| category | string | Categoría |
+| description | string | Descripción |
+| name | string | Nombre |
+| tagline | string | Tagline |
+| pictureURL | string | Imagen |
+| price | number | Precio |
+| stock | number | Stock |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Colección: Orders
+Cada `order` tiene las siguientes características:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Buyer           | Tipo            |        Valor         |
+| ----------------- | ----------------|----------------------|
+| email | string | Correo electrónico|
+| name | string | Nombre|
+| phone | string | Teléfono |
+| date | timestamp | Fecha y hora |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+| Items            | Tipo            |        Valor         |
+| ----------------- | ----------------|----------------------|
+| category | string | Categoría |
+| description | string | Descripción |
+| name | string | Nombre |
+| tagline | string | Tagline |
+| pictureURL | string | Imagen |
+| price | number | Precio |
+| stock | number | Stock |
+| quantity | number | Cantidad de unidades |
+| total | number | Total |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## :rocket: Deploy
+[![Netlify](https://img.shields.io/badge/Netlify-06795d?style=for-the-badge&logo=netlify&logoColor=white)]()
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔗 Links Personales
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gonzalotortola/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/gonzalotortola)
