@@ -15,13 +15,10 @@ const ItemDetail = ({ item }) => {
 
     const {addToCart, priceTotal} = useContext(CartContext);
 
-    const [cant, setCant] = useState(0);
-
     const [addedToCart, setAddedToCart] = useState(false);
 
     const onAdd = (quantityToAdd) => {
         console.log("Cantidad recibida: " + quantityToAdd);
-        setCant(quantityToAdd);
         setAddedToCart(true);
         addToCart(item, quantityToAdd);
         priceTotal(item, quantityToAdd);

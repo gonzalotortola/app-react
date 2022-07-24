@@ -60,6 +60,7 @@ export default function SearchBar() {
 
   const searcher = (e) => {
     setSearch(e.target.value)
+    return search
   }
 
   return (

@@ -78,22 +78,22 @@ export default function Footer() {
                         <h4 className="titulo-redes">Síguenos en nuestras redes</h4>
                         <ul className="contenedor-iconos-redes">
                             <li className="iconos-redes">
-                                <a href="https://instagram.com/waymara.arg/" target="_blank">
+                                <a href="https://instagram.com/waymara.arg/" target="_blank" rel="noreferrer">
                                     <InstagramIcon fontSize="large" />
                                 </a>
                             </li>
                             <li className="iconos-redes">
-                                <a href="https://facebook.com/waymara.argentina/" target="_blank">
+                                <a href="https://facebook.com/waymara.argentina/" target="_blank" rel="noreferrer">
                                     <FacebookIcon fontSize="large"/>
                                 </a>
                             </li>
                             <li className="iconos-redes">
-                                <a href="https://youtube.com/" target="_blank">
+                                <a href="https://youtube.com/" target="_blank" rel="noreferrer">
                                     <YouTubeIcon fontSize="large"/>
                                 </a>
                             </li>
                             <li className="iconos-redes">
-                                <a href="https://wa.me/5493813150993" target="_blank">
+                                <a href="https://wa.me/5493813150993" target="_blank" rel="noreferrer">
                                     <WhatsAppIcon fontSize="large"/>
                                 </a>
                             </li>

@@ -1,5 +1,11 @@
 # Proyecto Final - Gonzalo Tórtola
-####Curso ReactJS - Comisión #37070
+####*Coderhouse* | Curso ReactJS  - Comisión #37070
+
+---
+## :rocket: Deploy
+[![Netlify](https://img.shields.io/badge/Netlify-06795d?style=for-the-badge&logo=netlify&logoColor=white)](https://tortola-waymara.netlify.app)
+
+---
 
 ## Sobre el e-commerce
 
@@ -79,11 +85,6 @@ Cada `order` tiene las siguientes características:
 | stock | number | Stock |
 | quantity | number | Cantidad de unidades |
 | total | number | Total |
-
----
-
-## :rocket: Deploy
-[![Netlify](https://img.shields.io/badge/Netlify-06795d?style=for-the-badge&logo=netlify&logoColor=white)]()
 
 ---
 
